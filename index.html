@@ -10,13 +10,22 @@
       href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap"
       rel="stylesheet"
     />
+    <!-- font awoseme -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <!-- Load Styles -->
     <link href="css/styles.css" rel="stylesheet" />
   </head>
   <body>
     <!-- HTML Follows BEM naming conventions 
   IDs are only used for sections to connect menu achors to sections -->
-    <header class="page__header">
+    <header class="page__header" id="header">
+      <a href="#" class="icon">
+        <i class="fa fa-bars"></i>
+      </a>
       <nav class="navbar__menu">
         <!-- Navigation starts as empty UL that will be populated with JS -->
         <ul id="navbar__list"></ul>
