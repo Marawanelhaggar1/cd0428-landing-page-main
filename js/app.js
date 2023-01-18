@@ -10,16 +10,25 @@ const sections = document.querySelectorAll("section");
  * End Global Variables*/
 
 // build the nav
-for (var i = 1; i <= sections.length; i++) {
-  const a = document.createElement("a");
+sections.forEach((section) => {
+  const sectionId = section.getAttribute("id");
+  const sectionTitle = section.getAttribute("data-nav");
   const li = document.createElement("li");
+  const a = document.createElement("a");
+
+  a.href = `#${sectionId}`;
+  a.textContent = sectionTitle;
   a.classList.add("menu__link");
-  a.textContent = "Section" + " " + i;
-  // Scroll to anchor ID using scrollTO event
-  a.setAttribute("href", `#section${i}`);
+
+  a.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    section.scrollIntoView({
+      behavior: "smooth",
+    });
+  });
   li.appendChild(a);
   fragment.appendChild(li);
-}
+});
 ul.appendChild(fragment);
 
 // Add class 'active' to section when near top of viewport
@@ -79,20 +88,3 @@ icon.addEventListener("click", () => {
     ul.style.display = "none";
   }
 });
-
-// const  = ul.querySelectorAll("a")
-
-// sections.forEach(function (section) {
-//   links.forEach((link) => {
-//     link.addEventListener("click", (evt) => {
-//       evt.preventDefault();
-//       section.scrollIntoView({
-//         behavior: "smooth",
-//         block: "end",
-//         inline: "nearest",
-//       });
-//     });
-//   });
-// });
-
-document.documentElement.style.scrollBehavior = "smooth";
